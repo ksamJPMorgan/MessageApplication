@@ -13,7 +13,12 @@ namespace MessageApplication.Library.Helpers
    public class OutputLoggerHelper
    {
       public const string OUTPUT_FILE_NAME = "outputLog.txt";
+
+      /// <summary>
+      /// If set to true, the application will not output to a file. Only on console
+      /// </summary>
       public static bool SkipOutputFile = false;
+
       /// <summary>
       /// Writes in both console and output file.
       /// </summary>
