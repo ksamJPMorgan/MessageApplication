@@ -25,6 +25,7 @@ namespace MessageApplication
 
          OutputLoggerHelper.WriteToOutput($"* Simulating data finish: { DateTime.Now.ToString() } * ");
 
+         // Invoke execution only if you manage to get Instance
          ApplicationExecutor.Instance?.StartExecution();
 
          OutputLoggerHelper.WriteToOutput("*** Message Application Finished ***");
@@ -37,7 +38,7 @@ namespace MessageApplication
 
          Console.WriteLine("Press any key to exit application.");
 
-         Console.ReadLine();
+         Console.ReadLine(); 
       }
    }
 }
