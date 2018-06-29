@@ -8,6 +8,12 @@ namespace MessageApplication.Library.Helpers
 {
    public class ExceptionHelper
    {
+      /// <summary>
+      /// Get a unified style for exception messages
+      /// </summary>
+      /// <param name="header">The message to use a message header</param>
+      /// <param name="ex">The occured exception</param>
+      /// <returns></returns>
       public static string GetUnifiedExceptionMessage(string header, Exception ex)
       {
          string initialMsg = $" !!! { header } !!!";
