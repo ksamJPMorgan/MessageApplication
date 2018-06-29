@@ -9,7 +9,7 @@ The application is able to create or receive messages from oher sources, process
 - For the unit tests the nuget packages of NUnit v3.10.1 and NUnit3TestAdapter v.3.10.0 were used.
 
 ## Run
-The application will try and generate random test data at startup. If successful it will try to process the incoming data. In case we are running outside VS, we simply execute the MessageApplication.exe.
+The application will try and generate random test data at startup. If successful it will try to process the incoming data. In case we are running outside VS, we simply execute the MessageApplication.exe. I suggest executing with Run As administrator for I/O permissions.
 
 ## Assumptions
 - There will be no UI or database.
@@ -24,5 +24,11 @@ It is possible according to some scenarios to leave without value the Sale adjus
 
 
 ## Enhancements
-Added functionality to output all application messages to a file as well. The user will be prompted to open the file for review after the application has finished processing messages. The reason behind this is that by only reading the console window we may miss things. This enables us to review the file after we are done.
+Added functionality to output all application messages to a file as well. The user will be prompted to open the file for review after the application has finished processing messages. The reason behind this is that by only reading the console window we may miss things. This enables us to review the file after we are done. At each application startup, the file gets deleted and recreated.
+
+For auditing reasons each Message and Sale has a unique identifier that will be given to it at creation. This would ideally be a PK if data were stored in a database. In the case of a multi sale, new unique identifiers will be provided by the sytem.
+
+For auditing reasons also, the system logs completed messages and failed messages with extendibility for reporting.
+
+A message generator is provided for initial data creation. A new layer for data preparation/fetching should be provided if we wish to accept messages externally (file, web service, database)
 
