@@ -26,3 +26,9 @@ It is possible according to some scenarios to leave without value the Sale adjus
 ## Enhancements
 Added functionality to output all application messages to a file as well. The user will be prompted to open the file for review after the application has finished processing messages. The reason behind this is that by only reading the console window we may miss things. This enables us to review the file after we are done.
 
+For auditing reasons each Message and Sale has a unique identifier that will be given to it at creation. This would ideally be a PK if data were stored in a database. In the case of a multi sale, new unique identifiers will be provided by the sytem.
+
+For auditing reasons also, the system logs completed messages and failed messages with extendibility for reporting.
+
+A message generator is provided for initial data creation. A new layer for data preparation/fetching should be provided if we wish to accept messages externally (file, web service, database)
+
