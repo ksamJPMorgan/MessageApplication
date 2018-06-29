@@ -13,17 +13,21 @@ namespace MessageApplication.Library.Helpers
    public class OutputLoggerHelper
    {
       public const string OUTPUT_FILE_NAME = "outputLog.txt";
-
+      public static bool SkipOutputFile = false;
       /// <summary>
       /// Writes in both console and output file.
       /// </summary>
       /// <param name="s"></param>
       public static void WriteToOutput(string s)
       {
+         
          Console.WriteLine(s);
-         using (StreamWriter file = new StreamWriter(OUTPUT_FILE_NAME, true))
+         if (!SkipOutputFile)
          {
-            file.WriteLine(s);
+            using (StreamWriter file = new StreamWriter(OUTPUT_FILE_NAME, true))
+            {
+               file.WriteLine(s);
+            }
          }
       }
 

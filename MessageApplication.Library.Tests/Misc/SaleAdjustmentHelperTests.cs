@@ -16,7 +16,7 @@ namespace MessageApplication.Library.Tests.Misc
       public void SaleAdjustmentHelper_When_InvalidValues_ThrowsException()
       {
          // Arrange
-
+         OutputLoggerHelper.SkipOutputFile = true;
          // Act
 
          // Assert
@@ -27,6 +27,7 @@ namespace MessageApplication.Library.Tests.Misc
       public void SaleAdjustmentHelper_When_12and15_Equals27()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          decimal returnedValue = 0;
          // Act
          returnedValue = SaleAdjustmentHelper.CalculateSaleValue(AdjustmentType.Add, 12, 15);
@@ -39,6 +40,7 @@ namespace MessageApplication.Library.Tests.Misc
       public void SaleAdjustmentHelper_When_12times15_Equals180()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          decimal returnedValue = 0;
          // Act
          returnedValue = SaleAdjustmentHelper.CalculateSaleValue(AdjustmentType.Multiply, 12, 15);
@@ -51,6 +53,7 @@ namespace MessageApplication.Library.Tests.Misc
       public void SaleAdjustmentHelper_When_12minus15_Equals0()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          decimal returnedValue = 0;
          // Act
          returnedValue = SaleAdjustmentHelper.CalculateSaleValue(AdjustmentType.Subtract, 15, 12);

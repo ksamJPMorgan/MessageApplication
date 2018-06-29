@@ -20,6 +20,7 @@ namespace MessageApplication.Library.Tests.Validators
       public void Simple_When_SaleNull_PrintsWarning_And_ReturnsFalse()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          MessageValidatorSimple v = new MessageValidatorSimple();
          Message m = new Message(null, MessageType.Single);
 
@@ -35,6 +36,7 @@ namespace MessageApplication.Library.Tests.Validators
       public void Simple_When_TypeIsIncorrect_PrintsWarning_And_ReturnsFalse()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          MessageValidatorSimple v = new MessageValidatorSimple();
          Message m = new Message(new Sale(), MessageType.Multi);
 
@@ -50,6 +52,7 @@ namespace MessageApplication.Library.Tests.Validators
       public void Simple_When_SaleValueIncorrect_PrintsWarning_And_ReturnsFalse()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          MessageValidatorSimple v = new MessageValidatorSimple();
          Message m = new Message(new Sale("product", 0), MessageType.Single);
 
@@ -65,6 +68,7 @@ namespace MessageApplication.Library.Tests.Validators
       public void Simple_When_TypeAndSaleOk_SaveSale()
       {
          // Arrange
+         OutputLoggerHelper.SkipOutputFile = true;
          MessageValidatorSimple v = new MessageValidatorSimple();
          Sale s = new Sale("product", 1.5m);
          Message m = new Message(s, MessageType.Single);
