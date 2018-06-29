@@ -19,8 +19,9 @@ The application will try and generate random test data at startup. If successful
   - The incoming message has a type.
   - The incoming message has a Sale.
   - The incoming message has a Sale Adjustment.
+  - The Message is a class and not an Interface because it is supposed to be supplied by another consistent system that has the class exposed.
 It is possible according to some scenarios to leave without value the Sale adjustment.
-- The layout is 
+
 
 ## Enhancements
 Added functionality to output all application messages to a file as well. The user will be prompted to open the file for review after the application has finished processing messages. The reason behind this is that by only reading the console window we may miss things. This enables us to review the file after we are done.
