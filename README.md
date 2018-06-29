@@ -9,7 +9,8 @@ The application is able to create or receive messages from oher sources, process
 - For the unit tests the nuget packages of NUnit v3.10.1 and NUnit3TestAdapter v.3.10.0 were used.
 
 ## Run
-The application will try and generate random test data at startup. If successful it will try to process the incoming data. In case we are running outside VS, we simply execute the MessageApplication.exe. I suggest executing with Run As administrator for I/O permissions.
+The application will try and generate random test data at startup. If successful it will try to process the incoming data. In case we are running outside VS, we simply execute the MessageApplication.exe. 
+I suggest executing with Run As administrator for I/O permissions.
 
 ## Assumptions
 - There will be no UI or database.
