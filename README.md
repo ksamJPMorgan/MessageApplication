@@ -15,9 +15,13 @@ The application will try and generate random test data at startup. If successful
 - There will be no UI or database.
 - All data are stored in memory.
 - The message layout API is up to the developer. The API used for the Message layout is as follows:
-1. The incoming message has a unique identifier
-2. The incoming message has a type.
-3. The incoming message has a Sale.
-4. The incoming message has a Sale Adjustment.
+  - The incoming message has a unique identifier
+  - The incoming message has a type.
+  - The incoming message has a Sale.
+  - The incoming message has a Sale Adjustment.
 It is possible according to some scenarios to leave without value the Sale adjustment.
+- The layout is 
+
+## Enhancements
+Added functionality to output all application messages to a file as well. The user will be prompted to open the file for review after the application has finished processing messages. The reason behind this is that by only reading the console window we may miss things. This enables us to review the file after we are done.
 
