@@ -8,7 +8,7 @@ The application is able to create or receive messages from oher sources, process
 - The targeted .NET framework is 4.5.2
 - For the unit tests the nuget packages of NUnit v3.10.1 and NUnit3TestAdapter v.3.10.0 were used.
 
-## Run guide
+## Run
 The application will try and generate random test data at startup. If successful it will try to process the incoming data. In case we are running outside VS, we simply execute the MessageApplication.exe.
 
 ## Assumptions
