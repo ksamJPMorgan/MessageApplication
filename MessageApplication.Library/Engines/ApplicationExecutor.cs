@@ -79,12 +79,13 @@ namespace MessageApplication.Library.Engines
             if (DataManager.GetReadOnlyCompletedMessages().Count % REPORT_ADJUSTMENTS_THRESHOLD == 0)
             {
                appStatus = ApplicationStatus.Paused;
-               OutputLoggerHelper.WriteToOutput("** Application paused. Queueing all incoming messages.");
+               OutputLoggerHelper.WriteToOutput("*** Application paused. Queueing all incoming messages.");
 
                ReportManager.ReportSaleAdjustments();
 
                appStatus = ApplicationStatus.Running;
-               OutputLoggerHelper.WriteToOutput("** Application resumed. Queueing all incoming messages.");
+               OutputLoggerHelper.WriteToOutput("*** Application resumed. Queueing all incoming messages.");
+               OutputLoggerHelper.WriteToOutput(string.Empty);
             }
 
 
