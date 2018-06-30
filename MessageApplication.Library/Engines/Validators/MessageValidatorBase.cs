@@ -1,6 +1,7 @@
 ﻿using MessageApplication.Library.Core;
 using MessageApplication.Library.Helpers;
 using MessageApplication.Library.Interfaces;
+using System.Text;
 
 namespace MessageApplication.Library.Engines.Validators
 {
@@ -10,13 +11,13 @@ namespace MessageApplication.Library.Engines.Validators
       {
          if (message.Sale == null)
          {
-            OutputLoggerHelper.WriteToOutput("* The incoming sale cannot be empty. *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage("The incoming sale cannot be empty", message.MessageId));
             return false;
          }
 
          if (message.Sale.SaleValue <= 0)
          {
-            OutputLoggerHelper.WriteToOutput($"* The incoming sale value must be higher than 0. Current value { message.Sale.SaleValue } *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage($"The incoming sale value must be higher than 0. Current value { message.Sale.SaleValue }", message.MessageId));
             return false;
          }
 

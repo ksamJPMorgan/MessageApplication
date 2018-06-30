@@ -14,13 +14,13 @@ namespace MessageApplication.Library.Engines.Validators
 
          if (message.MessageType != MessageType.Multi)
          {
-            OutputLoggerHelper.WriteToOutput("* The message type must be Multi. *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage("The message type must be Multi.", message.MessageId));
             return false;
          }
 
          if (message.Sale.SaleOccurrences.GetValueOrDefault(1) <= 1)
          {
-            OutputLoggerHelper.WriteToOutput("* The sale occurrence must be bigger than 1 for a multi sale. *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage($"The sale occurrence must be bigger than 1 for a multi sale. Current value: { message.Sale.SaleOccurrences }", message.MessageId));
             return false;
          }
          return true;

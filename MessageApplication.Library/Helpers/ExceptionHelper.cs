@@ -21,5 +21,22 @@ namespace MessageApplication.Library.Helpers
          sb.AppendLine(new String('*', initialMsg.Length));
          return sb.ToString();
       }
+
+      /// <summary>
+      /// Get a unified style for warning during message validations
+      /// </summary>
+      /// <param name="warningMessage"></param>
+      /// <param name="ex"></param>
+      /// <returns></returns>
+      public static string GetUnifiedWarningMessage(string warningMessage, Guid messageId)
+      {
+         string initialMsg = "*** Message Validation Warning ***";
+         StringBuilder sb = new StringBuilder();
+         sb.AppendLine(initialMsg);
+         sb.AppendLine($"* Message:\t { messageId }");
+         sb.AppendLine($"* { warningMessage } *");
+         sb.AppendLine(new String('*', initialMsg.Length));        
+         return sb.ToString();
+      }
    }
 }

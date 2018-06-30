@@ -15,7 +15,7 @@ namespace MessageApplication.Library.Engines.Validators
 
          if (message.MessageType != MessageType.Single)
          {
-            OutputLoggerHelper.WriteToOutput("* The message type must be Single. *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage("The message type must be Single.", message.MessageId));
             return false;
          }
 

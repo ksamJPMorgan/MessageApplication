@@ -16,19 +16,19 @@ namespace MessageApplication.Library.Engines.Validators
 
          if (message.MessageType != MessageType.Adjustment)
          {
-            OutputLoggerHelper.WriteToOutput("* The message type must be Adjustment. *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage("The message type must be Adjustment.", message.MessageId));
             return false;
          }
 
          if (message.SaleAdjustment == null)
          {
-            OutputLoggerHelper.WriteToOutput("* The sale adjustment cannot be empty for sale adjustment message. *");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage("The sale adjustment cannot be empty for sale adjustment message.", message.MessageId));
             return false;
          }
 
          if (message.SaleAdjustment.AdjustmentValue < 1 || message.SaleAdjustment.AdjustmentValue == Decimal.MinValue)
          {
-            OutputLoggerHelper.WriteToOutput($"* The sale adjustment value must be at least { new decimal(1).ToString("n2") } for sale adjustment message. Current sale adjustment: { message.SaleAdjustment.AdjustmentValue.ToString() }*");
+            OutputLoggerHelper.WriteToOutput(ExceptionHelper.GetUnifiedWarningMessage($"The sale adjustment value must be at least { new decimal(1).ToString("n2") } for sale adjustment message. Current sale adjustment: { message.SaleAdjustment.AdjustmentValue.ToString() }", message.MessageId));
             return false;
          }
 
