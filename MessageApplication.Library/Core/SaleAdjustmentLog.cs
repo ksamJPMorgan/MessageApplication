@@ -87,6 +87,7 @@ namespace MessageApplication.Library.Core
          sb.AppendLine($"Sale Id:\t\t { _saleId.ToString()}");
          sb.AppendLine($"Product:\t\t { Product }");
          sb.AppendLine($"Sale value changed at: \t { _occuredAt.ToString()}");
+         sb.AppendLine($"Adjustment value:\t { AdjustmentValue }");
          sb.AppendLine($"Previous value:\t\t { _previousValue.ToString("n2") }");
          sb.AppendLine($"New value:\t\t { _newValue.ToString("n2") }");
 

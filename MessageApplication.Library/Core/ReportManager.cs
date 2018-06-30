@@ -43,7 +43,7 @@ namespace MessageApplication.Library.Core
          {
             OutputLoggerHelper.WriteToOutput("* Product:\t\t " + sale.Key.ToString());
             OutputLoggerHelper.WriteToOutput("* Sale Nmbr:\t\t " + sale.Count().ToString());
-            OutputLoggerHelper.WriteToOutput("* Total Value:\t\t " + sale.Sum(s => s.SaleValue));
+            OutputLoggerHelper.WriteToOutput("* Total Value:\t\t " + sale.Sum(s => s.SaleValue).ToString("n2"));
             OutputLoggerHelper.WriteToOutput(string.Empty);
          }
          OutputLoggerHelper.WriteToOutput("*** End: Reporting Sales per Product. ***");

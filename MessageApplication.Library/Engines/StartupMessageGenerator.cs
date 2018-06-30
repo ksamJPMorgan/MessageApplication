@@ -16,7 +16,7 @@ namespace MessageApplication.Library.Engines
          {
             for (int i = 0; i < 10; i++)
             {
-               Sale s = new Sale($"product { i }", decimal.Round(Convert.ToDecimal(r.NextDouble() * 1), 2));
+               Sale s = new Sale($"product { i }", decimal.Round(Convert.ToDecimal(r.NextDouble() * (20 - 0)), 2));
                Message m = new Message(s, MessageType.Single, null);
 
                DataManager.AddPendingMessage(m);
