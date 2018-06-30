@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace MessageApplication.Library.Helpers
@@ -25,9 +26,18 @@ namespace MessageApplication.Library.Helpers
          Console.WriteLine(s);
          if (!SkipOutputFile)
          {
-            using (StreamWriter file = new StreamWriter(OUTPUT_FILE_NAME, true))
+            try
             {
-               file.WriteLine(s);
+               using (StreamWriter file = new StreamWriter(OUTPUT_FILE_NAME, true))
+               {
+                  file.WriteLine(s);
+               }
+            }
+            catch(Exception ex)
+            {
+               // if a problem occurs with the I/O, reset the flag and output only to Console.
+               SkipOutputFile = true;
+               Console.WriteLine(ExceptionHelper.GetUnifiedExceptionMessage("There was a problem trying to write to the output file. Output set to Console only.", ex));
             }
          }
       }
@@ -37,8 +47,25 @@ namespace MessageApplication.Library.Helpers
       /// </summary>
       public static void ClearOutputFile()
       {
-         if (File.Exists(OUTPUT_FILE_NAME))
+         if (OutputFileExists())
             File.Delete(OUTPUT_FILE_NAME);
+      }
+
+      /// <summary>
+      /// Checks whether the output file exists.
+      /// </summary>
+      /// <returns></returns>
+      public static bool OutputFileExists()
+      {
+         return File.Exists(OUTPUT_FILE_NAME);
+      }
+
+      /// <summary>
+      /// Opens the output file for display/edit
+      /// </summary>
+      public static void DisplayOutputFile()
+      {
+         Process.Start(OUTPUT_FILE_NAME);
       }
    }
 }

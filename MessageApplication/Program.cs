@@ -26,11 +26,13 @@ namespace MessageApplication
 
          OutputLoggerHelper.WriteToOutput("*** Message Application Finished ***");
 
-         Console.WriteLine("Press Enter to open the output log txt file ");
-
-         Console.ReadLine();
-
-         System.Diagnostics.Process.Start(OutputLoggerHelper.OUTPUT_FILE_NAME);
+         // Only display the output file if it exists and we did not set it to skip
+         if (OutputLoggerHelper.OutputFileExists() && !OutputLoggerHelper.SkipOutputFile)
+         {
+            Console.WriteLine("Press Enter to open the output log txt file ");
+            Console.ReadLine();
+            OutputLoggerHelper.DisplayOutputFile();
+         }
 
          Console.WriteLine("Press any key to exit application.");
 
